@@ -1,0 +1,27 @@
+roles:
+  majdPetclinic:
+    chef_role: petclinic
+    node_role: petclinic
+    auto_spotting: {default: false} #if were using spot instances change to true (I'm using ON_DEMAND)
+    sgs: #SG group name (of the application)
+     - majdvpc-stg-ec2-private-SG
+    iam_profile: S3toEC2-READ #${ENV}-Petclinic #iAM role name in AWS (must be already created) ENV = staging
+    ami_id: ami-0ddf424f81ddb0720
+    elb: majdvpc-s-Majdstgl-1HX480PMX1P2Z # the name of the classic load balancer you want to attach the ec2`s to
+    aws_azs: #mine
+     - us-west-2a
+     - us-west-2b
+    terminate_previous_asg: true
+
+general:
+ key_names:
+  staging: Majd-stg-kp #keypair name thats used to ssh to the instances
+
+ vpcs: #VPC id that we are creating the ASG in
+  staging: vpc-08a4e3ef6bd774cab # majdvpc-stg
+
+# in step 5, important to add to the
+# documentation that we should add a tag for the subnets  
+# with key: Access and a value of either public/private so in step 7 when working with deployer it could identify the subnets
+
+# VPCZoneIdentifier
