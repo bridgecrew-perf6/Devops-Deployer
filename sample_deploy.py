@@ -138,7 +138,7 @@ aws s3 cp s3://majd-petclininc-artifacts/Artifacts/^CHEF_ROLE/^BRANCH/^BLD/sprin
 aws s3 cp s3://majd-petclininc-artifacts/Artifacts/application-mysql.properties /home/ubuntu/application-mysql.properties
 echo -e '\n#!/bin/bash\njava -jar -Dspring.profiles.active=mysql /home/ubuntu/petclinic.jar --spring.config.location=/home/ubuntu/application-mysql.properties' > /home/ubuntu/run-app.sh
 
-echo -e '\n[Unit]\nDescription=Deployer - PetClinic
+echo -e '[Unit]\nDescription=Deployer - PetClinic
 \n[Service]
 User=ubuntu
 ExecStart=/bin/bash /home/ubuntu/run-app.sh
