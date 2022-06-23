@@ -1,5 +1,5 @@
 # Start the MFA
-        aws-mfa --duration 43200 --device arn:aws:iam::415102591172:mfa/majd.rezik.2
+        aws-mfa --duration 43200 --device arn:aws:iam:
 
 ## mount also the MFA credentials
 >        docker run -it -v $PWD:/opt/deployer \
